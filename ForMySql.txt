@@ -1,0 +1,68 @@
+CREATE DATABASE yyy;
+ USE yyy;
+CREATE TABLE users (
+    id INT NOT NULL,
+    PRIMARY KEY (id),
+     FirstName VARCHAR(20),
+    LastName VARCHAR(20),
+    emai VARCHAR(20),
+    password VARCHAR(20)
+    
+) ENGINE=INNODB;
+
+CREATE TABLE child (
+    id INT,
+    FirstName VARCHAR(20),
+	emai VARCHAR(20),
+    password VARCHAR(20),
+    parent_id INT,
+    INDEX par_ind (parent_id),
+    FOREIGN KEY (parent_id)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+) ENGINE=INNODB;
+INSERT users(id,FirstName,LastName, emai, password ) 
+VALUES (1, 'Ватари','Вамми', 'vatary@mail.ru', 'home');
+INSERT users(id,FirstName,LastName, emai, password ) 
+VALUES (2, 'Соиторо','Ягами', 'police@mail.ru', 'command');
+INSERT users(id,FirstName,LastName, emai, password ) 
+VALUES (3, 'Бог','Смерти', 'death@mail.ru', 'notebook');
+INSERT users(id,FirstName,LastName, emai, password ) 
+VALUES (4, 'Дариус','Закклай', 'fji@mail.ru', 'commander');
+INSERT users(id,FirstName,LastName, emai, password ) 
+VALUES (5, 'Дот','Пиксис', 'pix@mail.ru', 'attak');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (1, 1,'Эл', 'detective@mail.ru', 'kira');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (2, 1,'Ниа', 'L@mail.ru', 'LLawliet');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (3, 1,'Мэлло', 'III@mail.ru', 'vatary');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (4, 2,'Лайт', 'God@mail.ru', 'savior');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (5, 2,'Миса', 'kira@mail.ru', 'light');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (6, 2,'Рюк', 'hell@mail.ru', 'apple');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (7, 3,'Рэм', 'hell@mail.ru', 'Misa');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (8, 3,'Мацуда', 'M@mail.ru', 'investigation');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (9, 3,'Эрен', 'eger@mail.ru', 'titanium');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (10, 4,'Армин', 'vvv@mail.ru', 'dream');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (11, 4,'Микаса', 'eren@mail.ru', 'power');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (12, 4,'Леви', 'akkerman@mail.ru', 'victory');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (13, 5,'Эрвин', 'smit@mail.ru', 'justice');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (14, 5,'Бертольд', 'BBB@mail.ru', 'colossal');
+INSERT child(id,parent_id,FirstName, emai, password ) 
+VALUES (15, 5,'Хистория', 'III@mail.ru', 'queen');
+#DELETE FROM users
+#WHERE id = 1;
+SHOW TABLES; 
+SELECT * FROM users;
+SELECT * FROM child;
